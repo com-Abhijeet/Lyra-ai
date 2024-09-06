@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  --backgroundTransparent : #00000057;
+  --backgroundColor : #25232e;
+  --primaryColor : #7031AF;
+  --primaryColorTransparent : #9040e1;
+  --secondaryColor : #B2ABF2;
+
+}
+#root{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--backgroundColor);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  /* background-color: var(--backgroundTransparent); */
+  color: #171717;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 60%;
+  margin: 1% auto;
+  background-color: var(--primaryColorTransparent);
+  padding: 2% 2%;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.chatbox {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  border-radius: 8px 8px 0 0;
+  background-color: var(--primaryColor);
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+.chatbox h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Montserrat Alternates", system-ui;
+  font-weight: 700;
+  font-style: normal;
+
+}
+
+.chatbox div {
+  margin-bottom: 10px;
+}
+
+.message-container {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.message-container.model {
+  justify-content: flex-start;
+}
+
+.message-container.user {
+  justify-content: flex-end;
+}
+
+.message-box {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-box p{
+  margin: 0;
+  padding: 2px;
+}
+
+.message-container.model .message-box {
+  background-color: #e9ecef;
+  color: black;
+  border-bottom-left-radius: 0;
+}
+.message-container.model .message-box h2{
+  text-align: center;
+  margin-top: 2%;
+}
+
+.message-container.user .message-box {
+  background-color: #007bff;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.message-container.user .avatar {
+  order: 2;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+hr{
+  background-color: var(--primaryColor);
+
+}
+
+.promptbox {
+  display: flex;
+  padding: 10px;
+  background-color: var(--primaryColor);
+  border-top: 1px solid var(--primaryColor);
+  border-radius: 0 0 8px 8px;
+  gap: 10px;
+}
+
+.promptbox input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+}
+
+.promptbox button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+.promptbox button i {
+  font-size: 16px;
+}
+
+.promptbox button:hover {
+  background-color: #0056b3;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bi.bi-arrow-repeat {
+  animation: spin 1s linear infinite;
+}
+
+
+/*******************************
+** CHATOPTIONS CSS **
+*******************************/
+.popover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.container-chatoptions {
+  position: absolute;
+  bottom: 100%; /* Position below the button */
+  left: 0;
+  z-index: 9999; /* Ensure it appears above other content */
+  background-color: white; /* Background color for the popover */
+  border: 1px solid #ccc; /* Border for the popover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the popover */
+  padding: 10px; /* Padding inside the popover */
+  border-radius: 4px; /* Rounded corners */
+  width: 200px; /* Set a fixed width for the popover */
+}
+
+.toggle-button {
+  /* Add any styles for the toggle button here */
+}
+
+/*******************************
+** SLIDER CSS **
+*******************************/
+.slider-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0px;
+}
+.slider {
+  width: 80%;
+  color: var(--primaryColorTransparent);
+  -webkit-appearance: none;
+  appearance:var(--primaryColorTransparent);
+}
+.slider-label,
+.slider-value {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slider-label {
+  top: -25px; /* Position above the slider */
+}
+
+
+/*********************************
+** MOBILE CSS **
+*********************************/
+
+@media (max-width : 768px){
+  .promptbox{
+    display: flex;
+    padding: 10px;
+    background-color: var(--primaryColor);
+    border-top: 1px solid var(--primaryColor);
+    border-radius: 0 0 8px 8px;
+    gap: 2px;
+
+  }
+  .avatar{
+    display: none;
+  }
+}
